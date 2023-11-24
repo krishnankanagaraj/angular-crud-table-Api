@@ -1,0 +1,44 @@
+<form [formGroup]="myForm">
+    <h1 class="text-center text-danger">Order Register Form</h1>
+    <div class="mb-3">
+        <label for="firstName" class="form-label">Frist Name</label>
+        <input type="text" name="firstName" id="firstName" formControlName="firstname" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" id="lastName" class="form-control"
+        formControlName="lastname" name="lastName">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" id="email" class="form-control" name="email" formControlName="email">
+    </div>
+    <div class="mb-3">
+        <label for="bookname" class="form-label">Bookname</label>
+        <input type="text" name="bookName" class="form-control" id="bookName" formControlName="bookname">
+    </div>
+    <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="number" name="phone" class="form-control" id="phone" formControlName="phone">
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" name="price" class="form-control" id="price" min="0" step="50" formControlName="price">
+    </div>
+    <div class="mb-3">
+        <label for="quantity">Quantity</label>
+        <select name="quantity" id="quantity" class="form-select" formControlName="quantity">
+            <option name="quantity" value="1">1</option>
+            <option name="quantity" value="2">2</option>
+            <option name="quantity" value="3">3</option>
+            <option name="quantity" value="4">4</option>
+            <option name="quantity" value="5">5</option>
+        </select>
+    </div>
+    <div class="d-grid gap-2 col-4 mx-auto">
+        <button type="submit" class="btn btn-success btn-block" (click)="addUser()">{{btnText}}</button>
+    </div>
+    <div class="d-grid gap-2 col-4 mx-auto mt-2">
+        <button class="btn btn-danger" (click)="deleteUsers()">Delete All Delivered orders</button>
+    </div>
+</form>

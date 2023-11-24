@@ -1,0 +1,56 @@
+
+<p *ngIf="!users.length" class="text-center lead text-warning fs-2">No Data to show</p>
+<table *ngIf="users.length" class="table table-striped">
+    <thead>
+  <tr>
+    <th scope="col">S.no</th>
+    <th scope="col">First Name 
+      <span class=" text-info" style="cursor: pointer;" (click)="sort('firstname')">&uarr;
+      </span>
+      <span class=" text-info" style="cursor: pointer;"  (click)="unSort()">&darr;
+      </span>
+    </th>
+    <th scope="col">Last Name
+      <span class=" text-info" style="cursor: pointer;" (click)="sort('lastname')">&uarr;
+      </span>
+      <span class=" text-info" style="cursor: pointer;"  (click)="unSort()">&darr;
+      </span>
+    </th>
+    <th scope="col">Email</th>
+    <th scope="col">Bookname
+      <span class=" text-info " style="cursor: pointer;" (click)="sort('bookname')">&uarr;
+      </span>
+      <span class=" text-info" style="cursor: pointer;"  (click)="unSort()">&darr;
+      </span>
+    </th>
+    <th scope="col">Phone</th>
+    <th scope="col">Price</th>
+    <th scope="col">Quantity</th>
+    <th scope="col">Total Price
+      <span class=" text-info" style="cursor: pointer;" (click)="sort('price')">&uarr;
+      </span>
+      <span class="  text-info" style="cursor: pointer;"  (click)="unSort()">&darr;
+      </span>
+    </th>
+    <th scope="col">Delivered</th>
+    <th scope="col">Edit</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let user of users let i=index" class="text-capitalize">
+    <th scope="row">{{i+1}}</th>
+    <td >{{user.firstname}}</td>
+    <td>{{user.lastname}}</td>
+    <td class="text-lowercase">{{user.email}}</td>
+    <td>{{user.bookname}}</td>
+    <td>{{user.phone}}</td>
+    <td>{{user.price}}</td>
+    <td>{{user.quantity}}</td>
+    <td>{{user.quantity*user.price}}</td>
+    <td>
+      <button [ngClass]="{'btn-success':user.isDeleted===1,'btn-danger':user.isDeleted===0}" class="btn text-white" [disabled]="user.isDeleted===1" (click)="editUser(user._id)">&#10003;</button>
+    </td>
+    <td><button class="btn btn-info" [disabled]="user.isDeleted===1" (click)="updateOrder(user)">Edit</button></td>
+  </tr>
+</tbody>
+</table>
